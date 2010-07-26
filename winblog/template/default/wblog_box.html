@@ -1,0 +1,46 @@
+<{if "" != $winlist}>
+		<{foreach from=$winlist item=win}>
+		<div class="entry">
+			<div class="avatar"><div class="imgborder"><a href="<{uri u=$win.username}>"><img src="<{$themes_ucenter_path}>/avatar.php?uid=<{$win.uid}>&size=small" /></a></div></div>
+			<div class="box">
+				<p><a href="<{uri u=$win.username}>"><{$win.nickname}></a>：<{$win.contents}></p>
+<{if "" != $win.block}>
+<{foreach from=$win.block item=block}>
+				<div class="block">
+					<div class="block_top"></div>
+					<div class="block_body"><a href="<{uri u=$block.username}>"><{$block.nickname}></a>：<{$block.contents}><div class="block_static"><a href="javascript:void(0);" onclick="showform('repost', <{$block.wid}>, '<i>转发</i> <{cutwin str=$block.contents len="5"}>');">转发<{if 0 != $block.repostsum}>（<{$block.repostsum}>）<{/if}></a> | <a href="javascript:void(0);" onclick="showform('comment', <{$block.wid}>, '<i>评论</i> <{cutwin str=$block.contents len="5"}>');">评论<{if 0 != $block.commentsum}>（<{$block.commentsum}>）<{/if}></a></div></div>
+					<div class="block_bottom"></div>
+				</div>
+<{/foreach}>
+<{/if}>
+				<div class="static">
+<{if "" != $site_user}>
+<span>
+<a href="<{spUrl c=wblog a=win wid=$win.wid}>" target="_blank">查看</a> | 
+<a href="javascript:void(0);" onclick="showform('repost', <{$win.wid}>, '<i>转发</i> <{cutwin str=$win.contents len="5"}>');">转发<{if 0 != $win.repostsum}>（<{$win.repostsum}>）<{/if}></a> | 
+<a href="javascript:void(0);" onclick="showform('atuser', <{$win.wid}>, '<i>回复</i> @<{$win.nickname}>  <{cutwin str=$win.contents len="5"}>');">回复</a> | 
+<a href="javascript:void(0);" onclick="showform('comment', <{$win.wid}>, '<i>评论</i> <{cutwin str=$win.contents len="5"}>');">评论<{if 0 != $win.commentsum}>（<{$win.commentsum}>）<{/if}></a>
+<{if $smarty.session.winblognow.uid == $win.uid}> | <a href="<{spUrl c=wblog a=del wid=$win.wid}>">删除</a><{/if}>
+</span>
+<{else}>
+<span>
+<a href="<{spUrl c=wblog a=win wid=$win.wid}>">查看</a> | 
+<a href="javascript:void(0);" onclick="javascript:alert('请先登录本系统！');">转发<{if 0 != $win.repostsum}>（<{$win.repostsum}>）<{/if}></a> | 
+<a href="javascript:void(0);" onclick="javascript:alert('请先登录本系统！');">回复</a> | 
+<a href="javascript:void(0);" onclick="javascript:alert('请先登录本系统！');">评论<{if 0 != $win.commentsum}>（<{$win.commentsum}>）<{/if}></a>
+</span>
+<{/if}>
+<{$win.ctime|date_format:"%Y-%m-%d %H:%S"}> 来自 <{$win.refrom}>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<{/foreach}>
+<{else}>
+		<div class="entry">
+			<div class="box">
+				<p>暂无微博...</p>
+			</div>
+			<div class="clear"></div>
+		</div>
+<{/if}>

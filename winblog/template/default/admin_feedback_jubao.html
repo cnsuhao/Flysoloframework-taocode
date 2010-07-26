@@ -1,0 +1,25 @@
+<{include file="default/header.html"}>
+<div class="main">
+	<div class="contents">
+		<div class="top">举报信息处理</div>
+		<h3><a href="<{spUrl c=admin a=feedback ctype=jubao}>">举报信息</a><span><a href="<{spUrl c=admin a=feedback ctype=idea}>">反馈建议</a></span></h3>
+		<h2>举报信息处理</h2>
+<{if "" != $msglist}>
+	<{foreach from=$msglist item=msg}>
+		<div class="entry">
+			<div class="avatar"><div class="imgborder"><a href="<{uri u=$msg.touser.username}>" target="_blank"><img src="<{$themes_ucenter_path}>/avatar.php?uid=<{$msg.touser.uid}>&size=small" /></a></div></div>
+			<div class="box">
+				<p><a href="<{uri u=$msg.touser.username}>" target="_blank"><{$msg.touser.nickname}></a>：被<a href="<{uri u=$msg.fromuser.username}>" target="_blank"><{$msg.fromuser.nickname}></a>举报。理由：<{$msg.msg}></p>
+				<div class="static">
+					<span><a href="<{spUrl c=admin a=feedback ctype=del oldtype=jubao fid=$msg.fid}>">删除</a>该举报信息</span><{$msg.ctime|date_format:"%Y-%m-%d %H:%S"}></a>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	<{/foreach}>
+<{/if}>
+	</div>
+	<{$template_sidebar}>
+	<div class="clear"></div>
+</div>
+<{include file="default/footer.html"}>

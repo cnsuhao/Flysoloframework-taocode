@@ -1,0 +1,23 @@
+<{include file="default/header.html"}>
+<div class="main">
+	<div class="contents">
+		<div class="top">提醒</div>
+		<h2>提醒设置</h2>
+		<h3>需要发送哪些提醒到你的电子邮件？</h3>
+		<div class="entry">
+			<div class="box">
+			<form action="<{spUrl c=panel a=reminder}>" method="POST">
+				<input type="hidden" name="poststatic" value="1">
+				<p class="formitem"><input type="checkbox" name="atme" id="atmebox" <{if 1 == $reminder.atme}>checked<{/if}> />&nbsp;<label for="atmebox">微博有人回复<label></p>
+				<p class="formitem"><input type="checkbox" name="comment" id="commentbox" <{if 1 == $reminder.comment}>checked<{/if}> />&nbsp;<label for="commentbox">有人对我的微博进行评论<label></p>
+				<p class="formitem"><input type="checkbox" name="repost" id="repostbox" <{if 1 == $reminder.repost}>checked<{/if}> />&nbsp;<label for="repostbox">微博被转发<label></p>
+				<p class="formitem"><input type="checkbox" name="myfans" id="myfansbox" <{if 1 == $reminder.myfans}>checked<{/if}> />&nbsp;<label for="myfansbox">有人关注我<label></p>
+				<p class="formsubmit"><input type="submit" value="提交"></p>
+			</form>
+			</div>
+		</div>
+	</div>
+	<{$template_sidebar}>
+	<div class="clear"></div>
+</div>
+<{include file="default/footer.html"}>

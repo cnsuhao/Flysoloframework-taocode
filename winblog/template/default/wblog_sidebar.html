@@ -1,0 +1,63 @@
+	<div class="sidebar">
+		<div class="box">
+			<div class="info">
+				<div class="avatar"><a href="<{uri u=$userinfo.username}>"><img src="<{$themes_ucenter_path}>/avatar.php?uid=<{$userinfo.uid}>&size=small" /></a></div>
+				<div class="detail"><p><a href="<{uri u=$userinfo.username}>"><{$userinfo.nickname}></a></p><p><{$userinfo.city}></p></div>
+				<div class="clear"></div>
+			</div>
+			<div class="counter">
+				<div class="counterbox"><strong><{$userinfo.asfans_count|default:"0"}></strong><br /><a href="<{spUrl c=wblog a=fans type=asfans username=$userinfo.username}>"><{$isme}>关注的</a></div>
+				<div class="counterbox"><strong><{$userinfo.myfans_count|default:"0"}></strong><br /><a href="<{spUrl c=wblog a=fans type=myfans username=$userinfo.username}>">关注<{$isme}>的</a></div>
+				<div class="counterbox"><strong><{$userinfo.winsum|default:"0"}></strong><br /><a href="<{uri u=$userinfo.username}>"><{$isme}>的微博</a></div>
+			</div>
+			<h2><a href="#">个人资料</a></h2>
+			<p><{$userinfo.intro|default:"&nbsp;"}></p>
+			<{if "" != $userinfo.blog}>
+				<ul>
+					<li><a href="<{$userinfo.blog}>"><{$isme}>的博客</a></li>
+				</ul>
+			<{/if}>
+<{if "TA" != $isme}>
+			<h2><a href="#">互动</a></h2>
+			<ul>
+				<li><a href="<{spUrl c=wblog a=comment}>">收到的评论</a></li>
+				<li><a href="<{spUrl c=wblog a=atme}>">回复我的</a></li>
+			</ul>
+<{/if}>
+		</div>
+		<div class="box">
+			<h3><span><a href="<{spUrl c=wblog a=fans type=asfans username=$userinfo.username}>">更多>></a></span><a href="<{spUrl c=wblog a=fans type=asfans username=$userinfo.username}>"><{$isme}>关注的人</a></h3>
+			<ul class="users">
+			<{if "" != $userinfo.asfans_list}>
+				<{foreach from=$userinfo.asfans_list item=fans}>
+					<li>
+						<a href="<{uri u=$fans.info.username}>"><img src="<{$themes_ucenter_path}>/avatar.php?uid=<{$fans.info.uid}>&size=small" /></a><br /><a href="<{uri u=$fans.info.username}>"><{$fans.info.nickname}></a><br /><span><a href="<{spUrl c=wblog a=asfans touid=$fans.info.uid  do='befans'}>">关注TA</a></span>
+					</li>
+				<{/foreach}>
+			<{else}><li>暂无...</li><{/if}>
+			</ul>
+			<div class="clear"></div>
+		</div>
+		<div class="box">
+			<h3><span><a href="<{spUrl c=wblog a=fans type=myfans username=$userinfo.username}>">更多>></a></span><a href="<{spUrl c=wblog a=fans type=myfans username=$userinfo.username}>">关注<{$isme}>的人</a></h3>
+			<ul class="users">
+			<{if "" != $userinfo.myfans_list}>
+				<{foreach from=$userinfo.myfans_list item=fans}>
+					<li>
+						<a href="<{uri u=$fans.info.username}>"><img src="<{$themes_ucenter_path}>/avatar.php?uid=<{$fans.info.uid}>&size=small" /></a><br /><a href="<{uri u=$fans.info.username}>"><{$fans.info.nickname}></a><br /><span><a href="<{spUrl c=wblog a=asfans touid=$fans.info.uid  do='befans'}>">关注TA</a></span>
+					</li>
+				<{/foreach}>
+			<{else}><li>暂无...</li><{/if}>
+			</ul>
+			<div class="clear"></div>
+		</div>
+		<div class="box">
+			<h3>意见反馈</h3>
+			<ul>
+				<li>欢迎使用<{$winblog.sitename}>并提出宝贵建议。请点击<a href="<{spUrl c=feedback a=idea}>">这里</a>提交微博意见反馈。 </li>
+			</ul>
+			<ul>
+				<li><a href="<{spUrl c=feedback a=jubao uid=$userinfo.uid}>">举报不良信息</a></li>
+			</ul>
+		</div>
+	</div>

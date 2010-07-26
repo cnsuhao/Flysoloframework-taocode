@@ -1,0 +1,12 @@
+<{include file="default/header.html"}>
+<div class="main">
+	<div class="contents">
+		<h2>回复我的</h2>
+<{include file="default/wblog_form.html" show="none"}>
+<{include file="default/wblog_box.html" winlist=$winlist}>
+<{pager c=wblog a=atme pager=$pager}>
+	</div>	
+	<{$template_sidebar}>
+	<div class="clear"></div>
+</div>
+<{include file="default/footer.html"}>

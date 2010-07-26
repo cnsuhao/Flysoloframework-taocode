@@ -1,0 +1,21 @@
+<{include file="default/header.html"}>
+<div class="main">
+	<div class="contents">
+		<div class="top">举报“<a href="<{uri u=$userinfo.username}>" target="_blank"><{$userinfo.nickname}></a>”</div>
+		<h2>举报用户</h2>
+		<h3>请填写举报“<a href="<{uri u=$userinfo.username}>" target="_blank"><{$userinfo.nickname}></a>”的理由，感谢你的支持。</h3>
+		<div class="entry">
+			<div class="box">
+			<form action="<{spUrl c=feedback a=jubao}>" method="POST">
+				<input type="hidden" name="uid" value="<{$userinfo.uid}>">
+				<p class="formitem"><span>举报理由：</span><input type="text" name="msg" class="input" /></p>
+				<p class="formsubmit"><input type="submit" value="提交"></p>
+			</form>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<{$template_sidebar}>
+	<div class="clear"></div>
+</div>
+<{include file="default/footer.html"}>

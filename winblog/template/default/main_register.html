@@ -1,0 +1,29 @@
+<{include file="default/header.html"}>
+<div class="main">
+	<div class="contents">
+		<div class="top">注册时下最火，最时尚的<{$winblog.sitename}>。</div>
+		<h2>注册<{$winblog.sitename}></h2>
+		<h3>请填写以下信息：</h3>
+		<div class="entry">
+			<div class="box">
+			<form action="<{spUrl c=main a=register}>" method="POST" onsubmit="return register_submit();">
+				<p class="formitem"><span>用户名：</span><input type="text" name="username" class="input" id="username" value="<{$remaininput.username}>" />
+				<{foreach from=$errmsg_arr item=err key=posi}><{if "username" == $posi }><i class="warning"><{$err.0}></i><{/if}><{/foreach}>
+				</p>
+				<p class="formitem"><span>密码：</span><input type="password" name="password" class="input" id="password" value="<{$remaininput.password}>" />
+				<{foreach from=$errmsg_arr item=err key=posi}><{if "password" == $posi }><i class="warning"><{$err.0}></i><{/if}><{/foreach}>
+				</p>
+				<p class="formitem"><span>重写密码：</span><input type="password" name="repassword" class="input" id="repassword" value="<{$remaininput.repassword}>" /></p>
+				<p class="formitem"><span>电子邮箱：</span><input type="text" name="email" class="input" id="email" value="<{$remaininput.email}>" />
+				<{foreach from=$errmsg_arr item=err key=posi}><{if "email" == $posi }><i class="warning"><{$err.0}></i><{/if}><{/foreach}>
+				</p>
+				<div class="formhr"></div>
+				<p class="formsubmit"><input type="submit" value="提交"></p>
+			</form>
+			</div>
+		</div>
+	</div>
+	<{$template_sidebar}>
+	<div class="clear"></div>
+</div>
+<{include file="default/footer.html"}>

@@ -1,0 +1,23 @@
+<{include file="default/header.html"}>
+<div class="main">
+	<div class="contents">
+		<div class="top"><{$winblog.sitename}></div>
+		<h2>用户登录</h2>
+		<div class="entry">
+			<div class="box">
+			<form action="<{spUrl c=main a=login}>" method="POST" onsubmit='aclcode();'>
+			<input type="hidden" name="ref" value="<{$ref}>">
+			<{if "" != $errmsg}>
+				<p class="formitem"><i class="warning"><{$errmsg}></i></p><{/if}>
+				<p class="formitem"><span>用户名：</span><input type="text" name="username" class="input" /></p>
+				<p class="formitem"><span>密码：</span><{pwinput id="myid" add="class = 'input'"}></p>
+				<div class="formhr"></div>
+				<p class="formsubmit"><input type="submit" value="提交">&nbsp;&nbsp;&nbsp;&nbsp;<a href="<{spUrl c=main a=forgetpw}>">忘记密码？</a></p>
+			</form>
+			</div>
+		</div>
+	</div>
+	<{$template_sidebar}>
+	<div class="clear"></div>
+</div>
+<{include file="default/footer.html"}>

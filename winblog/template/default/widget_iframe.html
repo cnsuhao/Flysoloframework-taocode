@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title><{$winblog.sitename}>的widget - Powered by WinBlog</title>
+<link rel="stylesheet" href="<{$themes_path}>main.css" type="text/css" media="screen" />
+</head>
+<body>
+<div class="framecss">
+	<div class="frametop">
+		<div class="logo"><a href="<{uri u=$widget_user.username}>" target="_blank"><img src="<{$themes_ucenter_path}>/avatar.php?uid=<{$widget_user.uid}>&size=small" /></a></div>
+		<div class="detail">
+			<a href="<{uri u=$widget_user.username}>" target="_blank"><{$widget_user.nickname}></a><br /><{$widget_user.winsum}>条微博
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="framebody" style="height:<{$widget_height}>px;">
+<{if "" != $winlist}>
+	<{foreach from=$winlist item=win}>
+		<div class="box"><{$win.contents}><div class="static"><a href="<{spUrl c=wblog a=win wid=$win.wid}>" target="_blank"><{$win.ctime|date_format:"%m-%d %H:%S"}></a></div></div>
+	<{/foreach}>
+<{/if}>
+	</div>
+	<div class="framebottom">
+		<a href="<{$site_uri}>" target="_blank"><{$winblog.sitename}></a>
+	</div>
+</div>
+</body></html>

@@ -1,0 +1,23 @@
+<{include file="default/header.html"}>
+<div class="main">
+	<div class="contents">
+		<div class="top">关键字设置</div>
+		<div class="post">
+			<div class="postad">关键字设置有两类，一种是发布后将变成屏蔽字符的词语，另一种是能够发布但会被系统记录以供审核的词语。</div>
+		</div>
+		<h2>屏蔽关键字</h2>
+		<h3><a href="#">设置屏蔽词语</a><span><a href="#">设置记录词语</a></span></h3>
+		<div class="post">
+			<div class="postad">关键字以空格分隔</div>
+			<form action="" class="postform" method="POST">
+				<textarea name="mywii"></textarea>
+				<br />
+				<p>将屏蔽词语替换成什么呢？<input type="text" name="replaceword" class="input" /></p>
+				<div class="postnow"><span><input type="submit" value="修改" class="button" /></span></div>
+			</form>
+		</div>
+	</div>
+	<{$template_sidebar}>
+	<div class="clear"></div>
+</div>
+<{include file="default/footer.html"}>

@@ -1,0 +1,9 @@
+<{capture name=ref}>http://<{$smarty.server.HTTP_HOST}><{$smarty.server.REQUEST_URI}><{/capture}>
+<div class="post" id="postform" style="display:<{$show|default:"none"}>;"><div class="postad" id="wcontent">你在做什么呢？</div>
+<form action="<{spUrl c=wblog a=post}>" class="postform" method="POST" onsubmit="return post_submit();">
+<input type="hidden" name="ref" value="<{$smarty.capture.ref|escape:"url"}>">
+<input type="hidden" name="formtype" value="post" id="formtype">
+<input type="hidden" name="wid" id="wid">
+<textarea name="contents" maxlength="140" id="wininput" onkeyup="check_len()"></textarea>
+<div class="postnow"><span><input type="submit" value="发布" class="button" /></span>你还可以发布<em id="leftlen">140</em>字</div>
+</form></div>

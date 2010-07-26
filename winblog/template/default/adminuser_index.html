@@ -1,0 +1,18 @@
+<{include file="default/header.html"}>
+<div class="main">
+	<div class="contents">
+		<div class="top">用户管理</div>
+		<h2>用户管理</h2>
+		<table>
+			<tr><th>ID</th><th>用户名</th><th>注册时间</th><th>操作</th></tr>
+		<{foreach from=$userlist item=user}>
+			<tr><td><{$user.uid}></td><td><a href="<{uri u=$user.username}>" target="_blank"><{$user.username}></a></td><td><{$user.ctime|date_format:"%Y-%m-%d %H:%S"}></td><td>
+			<{if "WINADMIN" != $user.acl_name}>
+			<a href="javascript:void(0);" onclick="comdel('<{spUrl c=adminuser a=del uid=$user.uid}>');">删除</a><{else}>&nbsp;<{/if}></td></tr>
+		<{/foreach}>
+		</table>
+	</div>
+	<{$template_sidebar}>
+	<div class="clear"></div>
+</div>
+<{include file="default/footer.html"}>

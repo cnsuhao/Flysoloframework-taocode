@@ -1,0 +1,20 @@
+<{include file="default/header.html"}>
+<div class="main">
+	<div class="contents">
+		<h2><{$winblog.sitename}></h2>
+		<h3><b>个人介绍</b>：<{$info.intro}></h3>
+		<div class="fansbar">
+<{if true == $isfans}>
+		已关注，<a href="<{spUrl c=wblog a=asfans touid=$info.uid do='unfans'}>">解除关注</a>
+<{else}>
+		<a href="<{spUrl c=wblog a=asfans touid=$info.uid  do='befans'}>">加关注</a>
+<{/if}>
+		</div>
+<{include file="default/wblog_form.html" show="none"}>
+<{include file="default/wblog_box.html" winlist=$winlist}>
+<{pager c=wblog a=view u=$info.username pager=$pager}>
+	</div>
+	<{$template_sidebar}>
+	<div class="clear"></div>
+</div>
+<{include file="default/footer.html"}>
