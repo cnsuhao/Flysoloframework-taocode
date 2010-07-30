@@ -2,7 +2,7 @@
 /**
  * 文件名：index.php
  * 版权：Copyright 2010 WuTao. Co. Ltd. All Rights Reserved.
- * 描述：FlySolo程序入口文件
+ * 描述：FlySolo程序入口文件a
  * 创建人：吴涛
  * 创建时间：2010-01-25 10:13
  * 版本: 1.0V
